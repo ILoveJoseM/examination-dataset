@@ -4,7 +4,7 @@ use Illuminate\Support\Facades\Schema;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
 
-class Subjects extends Migration
+class CreateQuestionBanks extends Migration
 {
     /**
      * Run the migrations.
@@ -13,12 +13,14 @@ class Subjects extends Migration
      */
     public function up()
     {
-        Schema::create('subjects', function (Blueprint $table) {
+        Schema::create('question_banks', function (Blueprint $table) {
             $table->increments('id');
-            $table->string("name", 50)->nullable(false)->comment("科目名称");
+            $table->string('name', 50)->null(false)->default("")->comment("名称");
+            $table->unsignedInteger("subject_id")->nullable(false)->default(0)->comment("科目ID");
             $table->timestamps();
             $table->index("created_at");
             $table->index("updated_at");
+            $table->index("subject_id");
         });
     }
 
@@ -29,6 +31,6 @@ class Subjects extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('subjects');
+        Schema::dropIfExists('question_banks');
     }
 }
