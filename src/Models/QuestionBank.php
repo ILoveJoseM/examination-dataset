@@ -23,6 +23,11 @@ use Illuminate\Database\Eloquent\Model;
  */
 class QuestionBank extends Model
 {
+    protected $fillable = [
+        "name",
+        "subject_id",
+    ];
+
     /**
      * @return \Illuminate\Database\Eloquent\Relations\BelongsTo
      */

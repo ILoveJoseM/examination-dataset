@@ -51,7 +51,8 @@ class UserExaminationSubject extends Model
 
     public function adminUser()
     {
-        return $this->belongsTo(AdminUser::class, "uid", "id");
+        $userModel = config('admin.database.users_model');
+        return $this->belongsTo($userModel, "uid", "id");
     }
 
 }
