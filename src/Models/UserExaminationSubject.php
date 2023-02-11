@@ -46,7 +46,7 @@ class UserExaminationSubject extends Model
 
     public function getAnswersAttribute()
     {
-        return json_decode($this->getOriginal("answers"), true);
+        return json_decode($this->getRawOriginal("answers"), true);
     }
 
     public function adminUser()

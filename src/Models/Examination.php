@@ -25,7 +25,8 @@ use Illuminate\Database\Eloquent\Model;
 class Examination extends Model
 {
     public function getExamTimeAttribute(){
-        $examTime = $this->getOriginal("exam_time");
+        $examTime = $this->attributes['exam_time'];
+//        $examTime = $this->getOriginal("exam_time");
         $minuts = floor($examTime / 60);
 
         if ($minuts < 10) {

@@ -43,7 +43,7 @@ class PaperQuestion extends Model
 
     public function getOptionsAttribute()
     {
-        $original = $this->getOriginal("options");
+        $original = $this->getRawOriginal("options");
         $options = json_decode($original, true);
         return is_null($options) ? $original : $options;
     }
